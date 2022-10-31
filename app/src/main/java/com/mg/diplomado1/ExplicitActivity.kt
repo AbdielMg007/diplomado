@@ -14,28 +14,23 @@ class ExplicitActivity : AppCompatActivity() {
         setContentView(R.layout.activity_explicit)
 
         val btSent = findViewById<Button>(R.id.bt_sent)
-        val etName = findViewById<EditText>(R.id.etName)
+        val etName = findViewById<EditText>(R.id.etName).text
+        val etLastName = findViewById<EditText>(R.id.etLastName).text
+        val etAge = findViewById<EditText>(R.id.etAge).text
 
         btSent.setOnClickListener {
-
-            val textName = etName.text.toString()
-
-            if (textName.isEmpty()){
-                Toast.makeText(this, "Nombre vacio", Toast.LENGTH_SHORT).show()
+            if (etName.isEmpty() && etLastName.isEmpty() && etAge.isEmpty()){
+                Toast.makeText(this, "Campos vacio", Toast.LENGTH_SHORT).show()
             }else{
                 val intent = Intent(this, ExplicitDetailActivity::class.java).apply{
-                    putExtra("KEY_NAME", "Abdiel")
-                    putExtra("KEY_LASTNAME", "MG" )
-                    putExtra("KEY_AGE", 22)
-
-                    val user = Usuarios("Juan", "Hernzandez", 20)
-                    user.name = textName
+                    val user = Usuarios("", "", 0)
+                    user.name = etName.toString()
+                    user.lastName = etLastName.toString()
+                    user.age = etAge.toString().toInt()
                     putExtra("KEY_USER", user)
                 }
                 startActivity(intent)
             }
-
-
         }
     }
 }

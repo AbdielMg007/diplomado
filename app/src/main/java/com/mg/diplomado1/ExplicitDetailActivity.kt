@@ -18,19 +18,6 @@ class ExplicitDetailActivity : AppCompatActivity() {
 
         intent.extras?.let { bundle ->
 
-            if (bundle.containsKey("KEY_NAME")){
-                val name = bundle.getString("KEY_NAME")
-                tvName.text = name
-            }
-            if (bundle.containsKey("KEY_LASTNAME")){
-                val lastname = bundle.getString("KEY_LASTNAME")
-                tvLastname.text = lastname
-            }
-            if (bundle.containsKey("KEY_AGE")){
-                val age = bundle.getInt("KEY_AGE")
-                tvAge.text = age.toString()
-            }
-
             if (bundle.containsKey("KEY_USER")){
                 val user: Usuarios = bundle.getSerializable("KEY_USER") as Usuarios
                 tvName.text = user.name

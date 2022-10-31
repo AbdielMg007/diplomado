@@ -10,8 +10,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("hola", "se creo onCreate")
-        val pass = Intent(this, ExplicitActivity::class.java)
-        startActivity(pass)
     }
 
     override fun onStart() {
